@@ -1,0 +1,32 @@
+@id =cmgpjbseb0000p6zmna5wx6sw
+
+### get data Jabatan
+GET {{url}}/api/v1/master/jabatan?page=1&limit=10?
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### post Jabatan
+POST {{url}}/api/v1/master/jabatan
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "nama_jabatan": "Sekretaris Desa",
+    "level": 2
+}
+
+### put Jabatan
+PUT {{url}}/api/v1/master/jabatan/{{id}}
+content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "nama_jabatan": "Carik",
+    "level": 2,
+    "is_active": true
+}
+
+### delete Jabatan
+DELETE {{url}}/api/v1/master/jabatan/{{id}}
+Content-Type: application/json
+Authorization: Bearer {{token}}

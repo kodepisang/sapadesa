@@ -1,7 +1,7 @@
 // File: src/services/AgamaService.ts
 
 import {PrismaClient, Prisma, type Agama} from '@prisma/client';
-import type {AgamaResponseDto} from "../types/MasterAgama.js";
+import type {AgamaResponseDto, CreateAgamaDto} from "../types/MasterAgama.js";
 import {paginate, type PaginatedResult} from "../utilities/pagination.js";
 
 const prisma = new PrismaClient();
@@ -22,12 +22,12 @@ function mapToAgamaResponse(agama: Agama): AgamaResponseDto {
 }
 
 // Tipe Data untuk input (Create)
-type AgamaCreateInput = Prisma.AgamaCreateInput;
+// type AgamaCreateInput = Prisma.AgamaCreateInput;
 
 /**
  * C - Create: Membuat data Agama baru
  */
-export async function createAgama(data: AgamaCreateInput) {
+export async function createAgama(data: CreateAgamaDto) {
     return prisma.agama.create({ data });
 }
 

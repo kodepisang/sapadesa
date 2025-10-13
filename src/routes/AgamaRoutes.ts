@@ -3,7 +3,8 @@
 import { Router } from 'express';
 import * as AgamaController from '../controllers/AgamaController.js';
 import { protect } from '../middlewares/authMiddleware.js';
-import {createAgamaRules, validate} from "../middlewares/validation/agamaValidation.js";
+import {validate} from "../middlewares/validation/Validate.js";
+import {createAgamaRules} from "../middlewares/validation/agamaValidation.js";
 
 const router = Router();
 

@@ -62,12 +62,13 @@ model Agama {
 // -------------------------------------------------------------
 model Jabatan {
   id           String   @id @default(cuid())
-  // Nama Jabatan (misal: 'Manager', 'Staff', 'Direktur')
+  // Nama Jabatan (misal: 'Kepala Desa', 'Sekretaris Desa', 'Kaur Keuangan')
   nama_jabatan String   @unique
-  // Status dan Waktu
-  is_active    Boolean  @default(true)
-  created_at   DateTime @default(now())
-  updated_at   DateTime @updatedAt
+  // Tingkat atau hierarki jabatan (misal: 1 = Tertinggi)
+  level       Int      @default(99)
+  is_active   Boolean  @default(true)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
 
   @@map("master_jabatan")
 }
