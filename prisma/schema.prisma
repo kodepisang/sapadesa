@@ -1,0 +1,58 @@
+// File: prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// -------------------------------------------------------------
+// MODEL OTORISASI (ROLE)
+// -------------------------------------------------------------
+
+model Role {
+  id    String  @id @default(cuid())
+  name  String  @unique
+  description   String?
+  users User[]
+  @@map("roles") // Relasi ke Model User: Satu Role bisa dimiliki oleh banyak User
+}
+
+// -------------------------------------------------------------
+// MODEL PENGGUNA (USER)
+// -------------------------------------------------------------
+
+model User {
+  id        String  @id @default(cuid())
+  username      String  @unique
+  password      String
+  nama_lengkap  String
+  jabatan       String?
+  email         String? @unique
+  // Relasi ke Model Role: Setiap User HARUS memiliki satu Role (Many-to-One)
+  roleId        String
+  role          Role    @relation(fields: [roleId], references: [id])
+  is_active     Boolean   @default(true)
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+  @@map("users")
+}
+
+// -------------------------------------------------------------
+// MODEL MASTER AGAMA
+// -------------------------------------------------------------
+
+model Agama {
+  id          String   @id @default(cuid())
+  // Nama Agama (misal: 'Islam', 'Kristen', 'Hindu')
+  nama_agama  String   @unique
+  // Status dan Waktu
+  is_active   Boolean  @default(true)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  @@map("master_agama")
+}

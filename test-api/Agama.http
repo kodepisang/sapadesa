@@ -1,0 +1,15 @@
+### get data agama
+GET {{url}}/api/v1/master/agama?page=1&limit=10&order=desc
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+
+### post agama
+POST {{url}}/api/v1/master/agama
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "nama_agama": "Budha"
+}

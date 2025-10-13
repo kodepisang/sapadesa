@@ -1,0 +1,25 @@
+services:
+  db:
+    # Menggunakan versi terbaru PostgreSQL, saat ini 17-alpine
+    image: postgres:17-alpine
+    container_name: sapadesa_postgres
+    restart: always
+    environment:
+      # Variabel : Database yang akan dibuat
+      POSTGRES_DB: sapadesa_db
+      # Variabel : User database
+      POSTGRES_USER: sapadesa_user_db
+      # Variabel : Password user
+      POSTGRES_PASSWORD: 234_sapadesa
+      # Variabel opsional: Password root (digunakan jika tidak ada POSTGRES_USER)
+      # POSTGRES_ROOT_PASSWORD: root_password
+    ports:
+      # Port e
+      - "5452:5432"
+    volumes:
+      # Menyimpan data database secara permanen di host
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
+    driver: local
