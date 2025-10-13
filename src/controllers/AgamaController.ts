@@ -2,10 +2,10 @@
 
 import type { Request, Response } from 'express';
 import * as AgamaService from '../services/AgamaService.js';
-import type {CreateAgamaDto} from "../types/MasterAgama.js";
+import type {AgamaUpdateDto, CreateAgamaDto} from "../types/MasterAgama.js";
 
 // --- C: Create ---
-export const create = async (req: Request<{}, {}, CreateAgamaDto>, res: Response) => {
+export const create = async (req: Request<CreateAgamaDto>, res: Response) => {
     try {
         const agama = await AgamaService.createAgama(req.body);
         res.status(201).json({ message: 'Agama berhasil ditambahkan.', data: agama });
@@ -58,7 +58,8 @@ export const findOne = async (req: Request, res: Response) => {
 };
 
 // --- U: Update ---
-export const update = async (req: Request, res: Response) => {
+export const update = async (req: Request<{id:string},{},AgamaUpdateDto>, res: Response) => {
+    console.log(req.body);
     try {
         const agama = await AgamaService.updateAgama(req.params.id!, req.body);
         res.status(200).json({ message: 'Agama berhasil diperbarui.', data: agama });

@@ -51,15 +51,15 @@ export async function getAllAgama(
     // 1. Buat objek ORDER BY untuk Prisma
     // Pastikan field yang diminta valid
     const orderBy: any = {};
-    if (orderByField && ['id', 'nama_agama', 'created_at'].includes(orderByField as string)) {
+    if (orderByField && ['id', 'nama_agama', 'created_at', 'updated_at'].includes(orderByField as string)) {
         orderBy[orderByField] = order;
     } else {
-        orderBy['nama_agama'] = 'asc'; // Fallback
+        orderBy['updated_at'] = 'desc'; // Fallback
     }
 
     // 2. Argumen khusus untuk kueri Prisma (filter aktif)
     const findManyArgs = {
-        where: { is_active: true },
+        where: orderByField ? { is_active: true } : {},
     };
 
     // 3. Panggil fungsi paginate generik

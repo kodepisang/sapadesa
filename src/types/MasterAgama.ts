@@ -13,3 +13,9 @@ export interface AgamaResponseDto {
     created_at: Date;
     updated_at: Date;
 }
+
+export type AgamaUpdateDto = {
+    nama_agama?: string;
+    is_active?: boolean;
+}
+

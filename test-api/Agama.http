@@ -1,8 +1,9 @@
+@id =cmgp08pyc0001p6phy5xbu0xu
+
 ### get data agama
-GET {{url}}/api/v1/master/agama?page=1&limit=10&order=desc
+GET {{url}}/api/v1/master/agama?page=1&limit=10?
 Content-Type: application/json
 Authorization: Bearer {{token}}
-
 
 
 ### post agama
@@ -11,5 +12,20 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "nama_agama": "Budha"
+    "nama_agama": "Hindu"
 }
+
+### put agama
+PUT {{url}}/api/v1/master/agama/{{id}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "nama_agama": "Kristen",
+    "is_active": true
+}
+
+### delete agama
+DELETE {{url}}/api/v1/master/agama/{{id}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
