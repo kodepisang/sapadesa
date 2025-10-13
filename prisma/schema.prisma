@@ -56,3 +56,18 @@ model Agama {
 
   @@map("master_agama")
 }
+
+// -------------------------------------------------------------
+// MODEL MASTER JABATAN
+// -------------------------------------------------------------
+model Jabatan {
+  id           String   @id @default(cuid())
+  // Nama Jabatan (misal: 'Manager', 'Staff', 'Direktur')
+  nama_jabatan String   @unique
+  // Status dan Waktu
+  is_active    Boolean  @default(true)
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+
+  @@map("master_jabatan")
+}

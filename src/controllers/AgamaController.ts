@@ -5,7 +5,7 @@ import * as AgamaService from '../services/AgamaService.js';
 import type {AgamaUpdateDto, CreateAgamaDto} from "../types/MasterAgama.js";
 
 // --- C: Create ---
-export const create = async (req: Request<CreateAgamaDto>, res: Response) => {
+export const create = async (req: Request<{},{},CreateAgamaDto>, res: Response) => {
     try {
         const agama = await AgamaService.createAgama(req.body);
         res.status(201).json({ message: 'Agama berhasil ditambahkan.', data: agama });
