@@ -59,7 +59,6 @@ export const findOne = async (req: Request, res: Response) => {
 
 // --- U: Update ---
 export const update = async (req: Request<{id:string},{},UpdatePendidikanDto>, res: Response) => {
-    console.log(req.body);
     try {
         const Pendidikan = await PendidikanService.updatePendidikan(req.params.id!, req.body);
         res.status(200).json({ message: 'Pendidikan berhasil diperbarui.', data: Pendidikan });

@@ -59,7 +59,6 @@ export const findOne = async (req: Request, res: Response) => {
 
 // --- U: Update ---
 export const update = async (req: Request<{id:string},{},AgamaUpdateDto>, res: Response) => {
-    console.log(req.body);
     try {
         const agama = await AgamaService.updateAgama(req.params.id!, req.body);
         res.status(200).json({ message: 'Agama berhasil diperbarui.', data: agama });
