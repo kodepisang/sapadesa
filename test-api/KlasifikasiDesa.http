@@ -1,0 +1,32 @@
+@id =cmgr3ej170000p6cxsydchndo
+
+### get data KlasifikasiDesa
+GET {{url}}/api/v1/master/klasifikasiDesa?page=1&limit=10?
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### post KlasifikasiDesa
+POST {{url}}/api/v1/master/klasifikasiDesa
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nama_klasifikasi": "Desa Mandiri",
+  "deskripsi": "Desa Mandiri"
+}
+
+### put KlasifikasiDesa
+PUT {{url}}/api/v1/master/klasifikasiDesa/{{id}}
+content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nama_klasifikasi": "Desa Mandiri 2",
+  "deskripsi": "Desa Mandiri",
+  "is_active": true
+}
+
+### delete KlasifikasiDesa
+DELETE {{url}}/api/v1/master/klasifikasiDesa/{{id}}
+Content-Type: application/json
+Authorization: Bearer {{token}}

@@ -72,3 +72,20 @@ model Jabatan {
 
   @@map("master_jabatan")
 }
+
+// -------------------------------------------------------------
+// MODEL MASTER KLASIFIKASI DESA
+// -------------------------------------------------------------
+
+model KlasifikasiDesa {
+  id                 String   @id @default(cuid())
+  // Nama Klasifikasi (misal: 'Desa Mandiri', 'Desa Maju', 'Desa Berkembang')
+  nama_klasifikasi   String   @unique
+  // Deskripsi singkat tentang klasifikasi
+  deskripsi          String?
+  is_active          Boolean  @default(true)
+  created_at         DateTime @default(now())
+  updated_at         DateTime @updatedAt
+
+  @@map("master_klasifikasi_desa")
+}

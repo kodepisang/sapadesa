@@ -21,8 +21,7 @@ content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "nama_jabatan": "Carik",
-    "level": 2,
+    "nama_jabatan": "Carik2",
     "is_active": true
 }
 

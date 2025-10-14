@@ -15,6 +15,7 @@ export const createJabatanRules = [
 
     // 2. Validasi level (opsional, jika disertakan harus integer)
     body('level')
+        .optional({ nullable: true })
         .notEmpty().withMessage('Level jabatan tidak boleh kosong.').bail()
         .isInt({ min: 1, max: 99 }).withMessage('Level harus berupa angka integer antara 1 hingga 99 (1=Tertinggi).')
 ];
