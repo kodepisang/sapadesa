@@ -89,3 +89,18 @@ model KlasifikasiDesa {
 
   @@map("master_klasifikasi_desa")
 }
+
+// -------------------------------------------------------------
+// MODEL MASTER PENDIDIKAN
+// -------------------------------------------------------------
+
+model Pendidikan {
+  id               String   @id @default(cuid())
+  // Nama Tingkat Pendidikan (misal: 'SD', 'SMP', 'SMA', 'S1', 'S2')
+  nama_pendidikan  String   @unique
+  is_active        Boolean  @default(true)
+  created_at       DateTime @default(now())
+  updated_at       DateTime @updatedAt
+
+  @@map("master_pendidikan")
+}

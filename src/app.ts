@@ -6,6 +6,7 @@ import userRoutes from "./routes/UserRoutes.js";
 import agamaRoutes from "./routes/AgamaRoutes.js";
 import jabatanRoutes from "./routes/JabatanRoutes.js";
 import KlasifikasiDesaRoutes from "./routes/KlasifikasiDesaRoutes.js";
+import PendidikanRoutes from "./routes/PendidikanRoutes.js";
 // import router dari routes/index.ts
 
 const app: Application = express();
@@ -18,6 +19,7 @@ app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/master/agama', agamaRoutes);
 app.use('/api/v1/master/jabatan', jabatanRoutes);
 app.use('/api/v1/master/klasifikasiDesa', KlasifikasiDesaRoutes);
+app.use('/api/v1/master/pendidikan', PendidikanRoutes)
 // Basic Route
 app.get('/', (req: Request, res: Response) => {
     res.send('SAPADESA Backend is running! (Sistem Informasi Aparatur Desa)');

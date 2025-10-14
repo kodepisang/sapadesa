@@ -1,0 +1,30 @@
+@id =cmgr4k88k0000p6iladtm2xgc
+
+### get data pendidikan
+GET {{url}}/api/v1/master/pendidikan?page=1&limit=10?
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+### post pendidikan
+POST {{url}}/api/v1/master/pendidikan
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nama_pendidikan": "SMP/MTS"
+}
+
+### put pendidikan
+PUT {{url}}/api/v1/master/pendidikan/{{id}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nama_pendidikan": "Madrasah Ibtidaiyah"
+}
+
+### delete pendidikan
+DELETE {{url}}/api/v1/master/pendidikan/{{id}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
